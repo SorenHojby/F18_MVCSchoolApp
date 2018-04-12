@@ -1,0 +1,14 @@
+﻿@using F18_MVCSchoolApp.Models;
+@model Student
+@{
+    ViewBag.Title = "Student";
+    Layout = "~/Views/Layouts/_Master.cshtml";
+}
+
+<h2>Details about @Model.Name</h2>
+<strong>Email: </strong>@Model.Email<br />
+<strong>Mobile: </strong>@Model.Mobile<br />
+<strong>Address: </strong>@Model.Address, @Model.Zip - @Model.City<br />
+<hr />
+@Html.ActionLink("Go back", "Index", "Students")
+

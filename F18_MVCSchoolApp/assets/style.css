@@ -1,0 +1,26 @@
+﻿body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #f1f1f1;
+    color: #003366;
+}
+
+a, a:visited, a:link {
+    text-decoration: none;
+    color: orangered;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    background-color: #fff;
+    padding: 10px;
+}
+
+.tb-container {
+    display: grid;
+    grid-template-columns: 100px 400px 150px;
+}
+.tb-container div {
+    border: 1px solid gray;
+    padding: 4px;
+}

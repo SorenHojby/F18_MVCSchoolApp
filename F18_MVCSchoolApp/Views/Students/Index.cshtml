@@ -1,0 +1,24 @@
+﻿@using F18_MVCSchoolApp.Models;
+@model List<Student>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Layouts/_Master.cshtml";
+}
+
+<h2>List of students at EAL</h2>
+<div class="tb-container">
+    <div>ID</div>
+    <div>Name</div>
+    <div>Link</div>
+    @foreach (var student in Model)
+    {
+        <div>@student.Id</div>
+        <div>@student.Name</div>
+        <div>
+            @Html.ActionLink("See more", "Student", "Students", new { id = student.Id }, new { }) 
+        </div>
+    }
+
+</div>
+
+
