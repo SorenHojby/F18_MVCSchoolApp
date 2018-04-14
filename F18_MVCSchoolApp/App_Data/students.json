@@ -1,0 +1,29 @@
+﻿[
+  {
+    "Id": 1,
+    "Name": "John Doe",
+    "Email": "john@doe.dk",
+    "Address": "Vindegade 1",
+    "Zip": 5000,
+    "City": "Odense",
+    "Mobile": 23146578
+  },
+  {
+    "Id": 2,
+    "Name": "John Doe 1",
+    "Email": "john@doe.dk",
+    "Address": "Vindegade 1",
+    "Zip": 5000,
+    "City": "Odense",
+    "Mobile": 23146578
+  },
+  {
+    "Id": 3,
+    "Name": "John Doe 3",
+    "Email": "john@doe.dk",
+    "Address": "Vindegade 1",
+    "Zip": 5000,
+    "City": "Odense",
+    "Mobile": 23146578
+  }
+]

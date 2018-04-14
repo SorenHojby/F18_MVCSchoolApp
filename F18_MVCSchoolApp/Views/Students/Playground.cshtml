@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Playground";
+    Layout = "~/Views/Layouts/_Master.cshtml";
+}
+<h2>Playground</h2>
+<button id="getStudents">Get students via API</button>
+<hr />
+<div id="result" class="tb-container"></div>
+
+
+<script>
+
+    //get a reference to the button that will trigger the display action => button#getStudents
+    var btn = document.getElementById('getStudents');
+    //we get the DIV element that will show the list of students (div#result)
+    var divResult = document.getElementById('result');
+    //we hide it for now, so we don't have an empty header
+    divResult.style.visibility = 'hidden';
+    //a reference ro the URL of the API => it's local, on our website
+    var url = '/Students/StudentsData';
+    //we are ready and await the user to click the button
+    btn.onclick = function () {
+        //remove any existing content inside the div#result
+        divResult.innerHTML = '';
+        //use JavasCript fetch to get data from the API
+        fetch(url).then(response => { return response.json(); }).then(data => {
+            //parse the JSON response as an array
+            var jsonArray = JSON.parse(data);
+            //loop through the array
+            for (var i = 0; i < jsonArray.length; i++) {
+                //get a reference to each student on the array
+                var student = jsonArray[i];
+                //we are going to create a row for each student
+                var divRowTemplate = `<div>${student.Id}</div><div>${student.Name}</div><div>${student.Mobile}</div><div>${student.Email}</div>`;
+                //append it to the result
+                divResult.innerHTML += divRowTemplate;
+            }
+            //now we show the div#result again
+            divResult.style.visibility = 'visible';
+        }).catch(err => {
+           //TODO: do semthing if an error occur
+        });
+    };
+
+</script>

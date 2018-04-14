@@ -20,19 +20,32 @@ namespace F18_MVCSchoolApp.Controllers
 
         public ActionResult Student(int id)
         {
-            // TODO
-            // replace the Student result with DbProvider.GetStudent(id)
-            Student result = new Student()
-            {
-                Id = id,
-                Name = "John Doe",
-                Address = "Somestreet 1",
-                City = "Odense",
-                Email = "student@eal.dk",
-                Zip = 5000,
-                Mobile = 12345678 * id
-            };
+            Student result = DbProvider.GetStudent(id);
             return View(result);
+        }
+
+        public ActionResult Edit(int id)
+        {
+            Student result = DbProvider.GetStudent(id);
+            return View(result);
+        }
+
+        public ActionResult Edit2(int id)
+        {
+            Student result = DbProvider.GetStudent(id);
+            return View(result);
+        }
+
+        //an API to show students details
+        public ActionResult StudentsData()
+        {
+            var students = DbProvider.GetStudents();
+            var jsonResult = Newtonsoft.Json.JsonConvert.SerializeObject(students);
+            return Json(jsonResult, JsonRequestBehavior.AllowGet);
+        }
+        public ActionResult Playground()
+        {
+            return View();
         }
     }
 }

@@ -18,7 +18,7 @@ a, a:visited, a:link {
 
 .tb-container {
     display: grid;
-    grid-template-columns: 100px 400px 150px;
+    grid-template-columns: 100px 400px 150px 150px;
 }
 .tb-container div {
     border: 1px solid gray;

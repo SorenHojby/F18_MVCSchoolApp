@@ -5,10 +5,10 @@
     Layout = "~/Views/Layouts/_Master.cshtml";
 }
 
-<h2>Details about @Model.Name</h2>
-<strong>Email: </strong>@Model.Email<br />
-<strong>Mobile: </strong>@Model.Mobile<br />
-<strong>Address: </strong>@Model.Address, @Model.Zip - @Model.City<br />
+<h2>@Html.DisplayNameFor(s => s.Name): @Model.Name</h2>
+<strong>@Html.DisplayNameFor(s => s.Email): </strong>@Model.Email<br />
+<strong>@Html.DisplayNameFor(s => s.Mobile): </strong>@Model.Mobile<br />
+<strong>@Html.DisplayNameFor(s => s.Address): </strong>@Model.Address, @Model.Zip - @Model.City<br />
 <hr />
 @Html.ActionLink("Go back", "Index", "Students")
 

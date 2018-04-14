@@ -9,31 +9,37 @@ namespace F18_MVCSchoolApp.Models
     {
         public static List<Student> GetStudents()
         {
-            List<Student> allStudents = new List<Student>();
-
-            //TODO: replace the for-loop and get data from the json
-            for(int i = 1; i < 21; i++)
-            {
-                Student student = new Student()
-                {
-                    Id = i,
-                    Name = "Student Doe-" + i,
-                    Email = string.Format("john-{0}@eal.dk", i),
-                    Address = "Seeblasgade" + i + " 1",
-                    City = "Odense",
-                    Zip = 5000,
-                    Mobile = 12345678 * i
-                };
-                allStudents.Add(student);
-            }
-
+            //reat the tgext from json file students
+            var jsonTxt = System.IO.File.ReadAllText(@"C:\Pba\F18\Projects\F18_MVCSchoolApp\F18_MVCSchoolApp\App_Data\students.json");
+            //deserialize the jsonTxt to a List of Students, using Newtonsoft.Json
+            var allStudents = Newtonsoft.Json.JsonConvert.DeserializeObject<List<Student>>(jsonTxt);
+            //return the list of students
             return allStudents;
         }
 
         // TODO
         public static Student GetStudent(int id)
         {
-            return new Student();
+
+            return GetStudents().Where(s => s.Id == id).Single();
+
+            /*
+            Student studentResult = new Student();
+            // get a list of ALL students
+            var allStudents = GetStudents();
+            //itterate troguh all students
+            foreach(var student in allStudents)
+            {
+                //compare the Student id with the id parameter
+                //if they are equal, you found your student
+                if(student.Id == id)
+                {
+                    //return the student
+                    studentResult = student;
+                }
+            }
+            return studentResult;
+            */
         }
     }
 }
